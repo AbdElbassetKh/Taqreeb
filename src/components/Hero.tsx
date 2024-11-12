@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Discover Classical Islamic Knowledge
+            Seek knowledge the archaeological way
           </h1>
           <p className="text-xl mb-8 text-emerald-50">
             Access the favorite books of the early centuries through our comprehensive digital library that includes the books of the predecessors, their explanations, and testimonies on them.
