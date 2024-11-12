@@ -11,8 +11,7 @@ const Hero = () => {
             Discover Classical Islamic Knowledge
           </h1>
           <p className="text-xl mb-8 text-emerald-50">
-            Access centuries of wisdom through our comprehensive digital library of classical texts, 
-            audio lectures, and scholarly commentaries.
+            You can access the favorite books of the early centuries through our comprehensive digital library that includes the books of the predecessors, their explanations, and testimonies on them.
           </p>
           <div className="relative max-w-2xl mx-auto">
             <input
