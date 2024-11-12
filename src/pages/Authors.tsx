@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Book, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Authors = () => {
   const authors = [
@@ -13,7 +14,16 @@ const Authors = () => {
       students: '1000+',
       image: 'https://images.unsplash.com/photo-1614849963640-9cc74b2a826f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
-    // Add more authors
+    {
+      id: 2,
+      name: 'Ibn Taymiyyah',
+      period: '661-728 AH',
+      location: 'Damascus',
+      expertise: ['Aqeedah', 'Fiqh', 'Tafsir'],
+      works: 350,
+      students: '500+',
+      image: 'https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    }
   ];
 
   return (
@@ -22,12 +32,16 @@ const Authors = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {authors.map((author) => (
-          <div key={author.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden">
+          <Link
+            to={`/author/${author.id}`}
+            key={author.id} 
+            className="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group"
+          >
             <div className="h-48 relative">
               <img
                 src={author.image}
                 alt={author.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-4 left-4 text-white">
@@ -61,7 +75,7 @@ const Authors = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
