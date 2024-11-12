@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Book className="h-6 w-6 text-emerald-600" />
-            <span className="font-arabic text-xl font-semibold">تقريب الآثار</span>
+            <span className="font-arabic text-xl font-semibold">تقريب الأثر</span>
           </Link>
 
           {/* Desktop Navigation */}
