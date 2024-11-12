@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Filter, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Library = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -15,8 +16,20 @@ const Library = () => {
       pages: 2891,
       cover: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
     },
-    // Add more books as needed
+    {
+      id: 2,
+      title: 'Al-Aqidah Al-Wasitiyah',
+      author: 'Ibn Taymiyyah',
+      category: 'Aqeedah',
+      language: 'Arabic/English',
+      pages: 168,
+      cover: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+    }
   ];
+
+  const filteredBooks = selectedCategory === 'all' 
+    ? books 
+    : books.filter(book => book.category.toLowerCase() === selectedCategory);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -54,22 +67,30 @@ const Library = () => {
         {/* Main Content */}
         <div className="flex-1">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {books.map((book) => (
-              <div key={book.id} className="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden">
-                <img
-                  src={book.cover}
-                  alt={book.title}
-                  className="w-full h-48 object-cover"
-                />
+            {filteredBooks.map((book) => (
+              <Link 
+                to={`/book/${book.id}`}
+                key={book.id} 
+                className="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group"
+              >
+                <div className="relative h-48">
+                  <img
+                    src={book.cover}
+                    alt={book.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                  />
+                  <div className="absolute top-2 right-2">
+                    <span className="bg-emerald-50 text-emerald-600 text-xs px-2 py-1 rounded-full">
+                      {book.category}
+                    </span>
+                  </div>
+                </div>
                 <div className="p-6">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="font-bold text-lg mb-1">{book.title}</h3>
                       <p className="text-gray-600 text-sm">{book.author}</p>
                     </div>
-                    <span className="bg-emerald-50 text-emerald-600 text-xs px-2 py-1 rounded">
-                      {book.category}
-                    </span>
                   </div>
                   <div className="mt-4 pt-4 border-t border-gray-100">
                     <div className="flex items-center justify-between text-sm text-gray-500">
@@ -82,7 +103,7 @@ const Library = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
