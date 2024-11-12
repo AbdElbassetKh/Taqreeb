@@ -20,10 +20,14 @@ const Navbar = () => {
             <NavLink to="/library" icon={<Library className="h-4 w-4" />} text="Library" />
             <NavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />
             <NavLink to="/search" icon={<Search className="h-4 w-4" />} text="Search" />
-            <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-emerald-700 transition">
-              <User className="h-4 w-4" />
-              <span>Sign In</span>
-            </button>
+            <div className="flex items-center space-x-4">
+              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
+                Sign In
+              </button>
+              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
+                Sign Up
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -43,9 +47,11 @@ const Navbar = () => {
               <MobileNavLink to="/library" icon={<Library className="h-4 w-4" />} text="Library" />
               <MobileNavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />
               <MobileNavLink to="/search" icon={<Search className="h-4 w-4" />} text="Search" />
-              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2">
-                <User className="h-4 w-4" />
-                <span>Sign In</span>
+              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition w-full text-left">
+                Sign In
+              </button>
+              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition w-full text-left">
+                Sign Up
               </button>
             </div>
           </div>
