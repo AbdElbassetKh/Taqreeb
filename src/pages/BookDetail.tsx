@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Book, Headphones, FileText, MessageCircle, Share2, User } from 'lucide-react';
+import { Book, Headphones, FileText, Share2, User } from 'lucide-react';
 import BookContent from '../components/book/BookContent';
 import BookExplanations from '../components/book/BookExplanations';
 import BookBenefits from '../components/book/BookBenefits';
 
 const BookDetail = () => {
   const { id } = useParams();
+  const [activeTab, setActiveTab] = useState('content');
 
   const book = {
     id,
@@ -59,15 +60,6 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
         pages: 486,
         publisher: 'Dar Ibn Al-Jawzi',
         year: '1995'
-      },
-      {
-        id: 3,
-        type: 'audio',
-        title: 'Detailed Explanation of Al-Aqidah Al-Wasitiyah',
-        scholar: 'Sheikh Abdul Razzaq Al-Badr',
-        duration: '35 hours',
-        language: 'Arabic',
-        year: '2015'
       }
     ],
     topics: [
@@ -149,23 +141,38 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
       <div className="mb-8">
         <div className="border-b border-gray-200">
           <nav className="flex space-x-8">
-            <TabButton icon={<Book />} label="Content" active />
-            <TabButton icon={<Headphones />} label="Explanations" />
-            <TabButton icon={<MessageCircle />} label="Benefits" />
+            <TabButton 
+              icon={<Book />} 
+              label="Content" 
+              active={activeTab === 'content'} 
+              onClick={() => setActiveTab('content')}
+            />
+            <TabButton 
+              icon={<Headphones />} 
+              label="Explanations" 
+              active={activeTab === 'explanations'} 
+              onClick={() => setActiveTab('explanations')}
+            />
           </nav>
         </div>
       </div>
 
-      {/* Book Content */}
-      <BookContent editions={book.editions} />
-      <BookExplanations explanations={book.explanations} />
-      <BookBenefits />
+      {/* Tab Content */}
+      {activeTab === 'content' && <BookContent editions={book.editions} />}
+      {activeTab === 'explanations' && <BookExplanations explanations={book.explanations} />}
+
+      {/* Benefits Section */}
+      <div className="mt-16">
+        <h2 className="text-2xl font-bold mb-8">Benefits</h2>
+        <BookBenefits />
+      </div>
     </div>
   );
 };
 
-const TabButton = ({ icon, label, active = false }) => (
+const TabButton = ({ icon, label, active = false, onClick }) => (
   <button
+    onClick={onClick}
     className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm ${
       active
         ? 'border-emerald-600 text-emerald-600'
