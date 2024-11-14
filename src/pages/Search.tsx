@@ -21,11 +21,12 @@ const Search = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for books, authors, or topics..."
+            aria-label="Search input"
           />
           <SearchIcon className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-        </div>
+        </header>
 
-        <div className="flex space-x-4 mb-8">
+        <nav className="flex space-x-4 mb-8" aria-label="Search categories">
           {tabs.map((tab) => (
             <Button
               key={tab.id}
@@ -35,29 +36,31 @@ const Search = () => {
                   ? 'bg-emerald-50 text-emerald-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
+              aria-pressed={activeTab === tab.id}
             >
               {tab.icon}
               <span>{tab.label}</span>
             </Button>
           ))}
-        </div>
+        </nav>
 
-        <div className="flex items-center justify-between mb-6">
+        <header className="flex items-center justify-between mb-6">
           <Heading className="text-lg">Search Results</Heading>
           <Button variant="secondary" size="medium" className="flex items-center space-x-2">
             <Filter className="h-4 w-4" />
             <span>Filter</span>
           </Button>
-        </div>
+        </header>
 
-        <div className="space-y-4">
+        <section className="space-y-4" aria-live="polite">
           {/* Placeholder for search results */}
           <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
             <Paragraph className="text-center">
               Enter a search term to find books, authors, and articles
             </Paragraph>
           </div>
-        </div>
+        </section>
+        </header>
       </div>
     </div>
   );

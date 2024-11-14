@@ -28,28 +28,29 @@ const Authors = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <section className="container mx-auto px-4 py-8">
       <Heading className="mb-8">Classical Scholars</Heading>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {authors.map((author) => (
-          <Link
-            to={`/author/${author.id}`}
+          <article
             key={author.id} 
             className="bg-white rounded-lg shadow-sm hover:shadow-md transition overflow-hidden group"
           >
-            <div className="h-48 relative">
-              <img
-                src={author.image}
-                alt={author.name}
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <Subheading>{author.name}</Subheading>
-                <Paragraph className="text-sm text-gray-200">{author.period}</Paragraph>
+            <Link to={`/author/${author.id}`}>
+              <div className="h-48 relative">
+                <img
+                  src={author.image}
+                  alt={`Portrait of ${author.name}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <header className="absolute bottom-4 left-4 text-white">
+                  <Subheading>{author.name}</Subheading>
+                  <Paragraph className="text-sm text-gray-200">{author.period}</Paragraph>
+                </header>
               </div>
-            </div>
+            </Link>
             <div className="p-6">
               <div className="flex items-center space-x-2 text-gray-600 mb-4">
                 <MapPin className="h-4 w-4" />
@@ -76,10 +77,10 @@ const Authors = () => {
                 </div>
               </div>
             </div>
-          </Link>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

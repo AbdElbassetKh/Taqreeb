@@ -82,6 +82,7 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
             src={book.cover}
             alt={book.title}
             className="w-full rounded-lg shadow-lg"
+            loading="lazy"
           />
         </div>
         <div className="flex-1">
@@ -113,11 +114,11 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
             ))}
           </div>
           <div className="flex space-x-4">
-            <Button variant="primary" size="medium" className="flex items-center space-x-2">
+            <Button variant="primary" size="medium" className="flex items-center space-x-2" aria-label="Read Book">
               <Book className="h-4 w-4" />
               <span>Read Book</span>
             </Button>
-            <Button variant="secondary" size="medium" className="flex items-center space-x-2">
+            <Button variant="secondary" size="medium" className="flex items-center space-x-2" aria-label="Share Book">
               <Share2 className="h-4 w-4" />
               <span>Share</span>
             </Button>
@@ -179,6 +180,7 @@ const TabButton = ({ icon, label, active = false, onClick }) => (
         ? 'border-emerald-600 text-emerald-600'
         : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
     }`}
+  role="tab"
   >
     {icon}
     <span>{label}</span>

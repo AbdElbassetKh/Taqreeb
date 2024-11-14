@@ -101,7 +101,7 @@ const BookBenefits = () => {
     <div className="space-y-8">
       {/* Tabs */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-        <div className="flex space-x-4 border-b border-gray-200">
+        <div className="flex space-x-4 border-b border-gray-200" role="tablist">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -111,6 +111,8 @@ const BookBenefits = () => {
                   ? 'border-emerald-600 text-emerald-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700'
               }`}
+              role="tab"
+              aria-selected={activeTab === tab.id}
             >
               {tab.icon}
               <span>{tab.label}</span>
@@ -146,7 +148,7 @@ const BookBenefits = () => {
       </div>
 
       {/* Content list */}
-      <div className="space-y-6">
+      <div className="space-y-6" role="tabpanel" aria-labelledby={`${activeTab}-tab`}>
         {sortContributions(contributions[activeTab]).map((item, index) => (
           <div
             id={`${activeTab}-${index + 1}`}

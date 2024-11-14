@@ -60,13 +60,14 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <section className="container mx-auto px-4 py-8">
       {/* Author Header */}
-      <div className="relative h-64 rounded-xl overflow-hidden mb-8">
+      <header className="relative h-64 rounded-xl overflow-hidden mb-8">
         <img
           src={author.image}
-          alt={author.name}
+          alt={`Portrait of ${author.name}`}
           className="w-full h-full object-cover"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-8 left-8 text-white">
@@ -74,13 +75,13 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
           <Subheading className="text-xl text-gray-200">{author.fullName}</Subheading>
           <Paragraph className="text-xl font-arabic mt-1">{author.arabicName}</Paragraph>
         </div>
-      </div>
+      </header>
 
       {/* Author Info */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Sidebar */}
-        <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+        <aside className="space-y-6">
+          <article className="bg-white p-6 rounded-lg shadow-sm">
             <Subheading className="mb-4">Information</Subheading>
             <div className="space-y-4">
               <InfoItem icon={<Calendar />} label="Period" value={author.period} />
@@ -88,9 +89,9 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
               <InfoItem icon={<Book />} label="Works" value={`${author.works.length} major works`} />
               <InfoItem icon={<Users />} label="Notable Students" value={author.students.length} />
             </div>
-          </div>
+          </article>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <article className="bg-white p-6 rounded-lg shadow-sm">
             <Subheading className="mb-4">Areas of Expertise</Subheading>
             <div className="flex flex-wrap gap-2">
               {author.expertise.map((field) => (
@@ -102,32 +103,32 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
                 </span>
               ))}
             </div>
-          </div>
+          </article>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm">
+          <article className="bg-white p-6 rounded-lg shadow-sm">
             <Subheading className="mb-4">Notable Students</Subheading>
             <ul className="space-y-2">
               {author.students.map((student) => (
                 <li key={student} className="text-gray-700">• {student}</li>
               ))}
             </ul>
-          </div>
-        </div>
+          </article>
+        </aside>
 
         {/* Main Content */}
-        <div className="lg:col-span-2">
-          <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
+        <main className="lg:col-span-2">
+          <article className="bg-white p-8 rounded-lg shadow-sm mb-8">
             <Subheading className="mb-4">Biography</Subheading>
             <div className="prose max-w-none">
               {author.biography.split('\n\n').map((paragraph, index) => (
                 <Paragraph key={index} className="leading-relaxed mb-4">
                   {paragraph}
-                </p>
+                </Paragraph>
               ))}
             </div>
-          </div>
+          </article>
 
-          <div className="space-y-8">
+          <section className="space-y-8">
             <Subheading>Major Works</Subheading>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {author.works.map((work) => (
@@ -139,8 +140,9 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
                   <div className="relative h-48">
                     <img
                       src={work.cover}
-                      alt={work.title}
+                      alt={`Cover of ${work.title}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                      loading="lazy"
                     />
                     <div className="absolute top-2 right-2">
                       <span className="bg-emerald-50 text-emerald-600 text-xs px-2 py-1 rounded-full">
@@ -156,10 +158,10 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
                 </Link>
               ))}
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
-    </div>
+    </section>
   );
 };
 

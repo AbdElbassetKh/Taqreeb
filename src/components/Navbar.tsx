@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white shadow-sm" role="navigation" aria-label="Main Navigation">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
@@ -35,6 +35,8 @@ const Navbar = () => {
           <button 
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -42,8 +44,8 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden pb-4" role="menu" aria-label="Mobile Navigation">
+            <div className="flex flex-col space-y-4" role="menuitem">
               <MobileNavLink to="/" icon={<Home className="h-4 w-4" />} text="Home" />
               <MobileNavLink to="/library" icon={<Library className="h-4 w-4" />} text="Library" />
               <MobileNavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />

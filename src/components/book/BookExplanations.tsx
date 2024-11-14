@@ -16,10 +16,10 @@ const BookExplanations = ({ explanations }) => {
     : explanations.filter(exp => exp.type === activeType);
 
   return (
-    <div className="mb-12">
-      <div className="flex items-center justify-between mb-6">
+    <section className="mb-12">
+      <header className="flex items-center justify-between mb-6">
         <Heading>Explanations</Heading>
-        <div className="flex space-x-2">
+        <nav className="flex space-x-2" aria-label="Explanation types">
           {types.map((type) => (
             <Button
               key={type.id}
@@ -29,17 +29,18 @@ const BookExplanations = ({ explanations }) => {
                   ? 'bg-emerald-50 text-emerald-600'
                   : 'text-gray-600 hover:bg-gray-50'
               }`}
+              aria-pressed={activeType === type.id}
             >
               {type.icon}
               <span>{type.label}</span>
             </Button>
           ))}
-        </div>
-      </div>
+        </nav>
+      </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {filteredExplanations.map((explanation) => (
-          <div key={explanation.id} className="bg-white p-6 rounded-lg shadow-sm">
+          <article key={explanation.id} className="bg-white p-6 rounded-lg shadow-sm">
             <div className="flex items-start space-x-4">
               <div className="p-3 bg-emerald-50 rounded-lg">
                 {explanation.type === 'audio' ? (
@@ -58,12 +59,12 @@ const BookExplanations = ({ explanations }) => {
                 </Paragraph>
                 <div className="mt-4 flex space-x-3">
                   {explanation.type === 'audio' ? (
-                    <Button variant="primary" size="medium" className="flex items-center space-x-2">
+                    <Button variant="primary" size="medium" className="flex items-center space-x-2" aria-label={`Listen to ${explanation.title}`}>
                       <Play className="h-4 w-4" />
                       <span>Listen</span>
                     </Button>
                   ) : (
-                    <Button variant="primary" size="medium" className="flex items-center space-x-2">
+                    <Button variant="primary" size="medium" className="flex items-center space-x-2" aria-label={`Download ${explanation.title}`}>
                       <Download className="h-4 w-4" />
                       <span>Download</span>
                     </Button>
@@ -71,10 +72,10 @@ const BookExplanations = ({ explanations }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
