@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Book, Home, Library, Search, User, Menu, X } from 'lucide-react';
+import { Button, Heading } from './DesignSystem';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Book className="h-6 w-6 text-emerald-600" />
-            <span className="font-arabic text-xl font-semibold">تقريب الأثر</span>
+            <Heading className="font-arabic text-xl">تقريب الأثر</Heading>
           </Link>
 
           {/* Desktop Navigation */}
@@ -21,12 +22,12 @@ const Navbar = () => {
             <NavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />
             <NavLink to="/search" icon={<Search className="h-4 w-4" />} text="Search" />
             <div className="flex items-center space-x-4">
-              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
+              <Button variant="secondary" size="medium">
                 Sign In
-              </button>
-              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
+              </Button>
+              <Button variant="primary" size="medium">
                 Sign Up
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -47,12 +48,12 @@ const Navbar = () => {
               <MobileNavLink to="/library" icon={<Library className="h-4 w-4" />} text="Library" />
               <MobileNavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />
               <MobileNavLink to="/search" icon={<Search className="h-4 w-4" />} text="Search" />
-              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition w-full text-left">
+              <Button variant="secondary" size="medium" className="w-full text-left">
                 Sign In
-              </button>
-              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition w-full text-left">
+              </Button>
+              <Button variant="primary" size="medium" className="w-full text-left">
                 Sign Up
-              </button>
+              </Button>
             </div>
           </div>
         )}

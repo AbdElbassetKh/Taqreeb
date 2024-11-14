@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search as SearchIcon, Filter, Book, User, FileText } from 'lucide-react';
+import { Button, Heading, Input, Paragraph } from '../components/DesignSystem';
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,19 +17,17 @@ const Search = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <div className="relative mb-8">
-          <input
-            type="text"
+          <Input
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for books, authors, or topics..."
-            className="w-full px-6 py-4 pr-12 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
           <SearchIcon className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
         </div>
 
         <div className="flex space-x-4 mb-8">
           {tabs.map((tab) => (
-            <button
+            <Button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition ${
@@ -39,24 +38,24 @@ const Search = () => {
             >
               {tab.icon}
               <span>{tab.label}</span>
-            </button>
+            </Button>
           ))}
         </div>
 
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-lg font-semibold text-gray-800">Search Results</h2>
-          <button className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:bg-gray-50 rounded-lg transition">
+          <Heading className="text-lg">Search Results</Heading>
+          <Button variant="secondary" size="medium" className="flex items-center space-x-2">
             <Filter className="h-4 w-4" />
             <span>Filter</span>
-          </button>
+          </Button>
         </div>
 
         <div className="space-y-4">
           {/* Placeholder for search results */}
           <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-            <p className="text-gray-500 text-center">
+            <Paragraph className="text-center">
               Enter a search term to find books, authors, and articles
-            </p>
+            </Paragraph>
           </div>
         </div>
       </div>

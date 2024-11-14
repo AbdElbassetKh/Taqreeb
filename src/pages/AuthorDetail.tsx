@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { MapPin, Calendar, Book, Users } from 'lucide-react';
+import { Heading, Subheading, Paragraph } from '../components/DesignSystem';
 
 const AuthorDetail = () => {
   const { id } = useParams();
@@ -69,9 +70,9 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-8 left-8 text-white">
-          <h1 className="text-4xl font-bold mb-2">{author.name}</h1>
-          <p className="text-xl text-gray-200">{author.fullName}</p>
-          <p className="text-xl font-arabic mt-1">{author.arabicName}</p>
+          <Heading className="mb-2">{author.name}</Heading>
+          <Subheading className="text-xl text-gray-200">{author.fullName}</Subheading>
+          <Paragraph className="text-xl font-arabic mt-1">{author.arabicName}</Paragraph>
         </div>
       </div>
 
@@ -80,7 +81,7 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
         {/* Sidebar */}
         <div className="space-y-6">
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h2 className="font-semibold mb-4">Information</h2>
+            <Subheading className="mb-4">Information</Subheading>
             <div className="space-y-4">
               <InfoItem icon={<Calendar />} label="Period" value={author.period} />
               <InfoItem icon={<MapPin />} label="Location" value={author.location} />
@@ -90,7 +91,7 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h2 className="font-semibold mb-4">Areas of Expertise</h2>
+            <Subheading className="mb-4">Areas of Expertise</Subheading>
             <div className="flex flex-wrap gap-2">
               {author.expertise.map((field) => (
                 <span
@@ -104,7 +105,7 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h2 className="font-semibold mb-4">Notable Students</h2>
+            <Subheading className="mb-4">Notable Students</Subheading>
             <ul className="space-y-2">
               {author.students.map((student) => (
                 <li key={student} className="text-gray-700">• {student}</li>
@@ -116,10 +117,10 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
         {/* Main Content */}
         <div className="lg:col-span-2">
           <div className="bg-white p-8 rounded-lg shadow-sm mb-8">
-            <h2 className="text-2xl font-bold mb-4">Biography</h2>
+            <Subheading className="mb-4">Biography</Subheading>
             <div className="prose max-w-none">
               {author.biography.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                <Paragraph key={index} className="leading-relaxed mb-4">
                   {paragraph}
                 </p>
               ))}
@@ -127,7 +128,7 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
           </div>
 
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold">Major Works</h2>
+            <Subheading>Major Works</Subheading>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {author.works.map((work) => (
                 <Link
@@ -149,8 +150,8 @@ Throughout his life, Ibn Taymiyyah was known for his unwavering stance on follow
                   </div>
                   <div className="p-6">
                     <h3 className="font-bold text-lg mb-2">{work.title}</h3>
-                    <p className="text-gray-600 text-sm mb-2">{work.year}</p>
-                    <p className="text-gray-700">{work.description}</p>
+                    <Paragraph className="text-sm mb-2">{work.year}</Paragraph>
+                    <Paragraph>{work.description}</Paragraph>
                   </div>
                 </Link>
               ))}

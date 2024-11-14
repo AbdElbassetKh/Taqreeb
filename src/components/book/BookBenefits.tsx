@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Heart, Quote, BookOpen, BarChart2, ArrowUpDown, Clock } from 'lucide-react';
+import { Button, Input, Subheading, Paragraph } from '../DesignSystem';
 
 const BookBenefits = () => {
   const [activeTab, setActiveTab] = useState('benefits');
@@ -119,20 +120,17 @@ const BookBenefits = () => {
         <div className="flex space-x-4">
           <div className="flex items-center space-x-2">
             <form onSubmit={handleJumpTo} className="flex items-center space-x-2">
-              <input
+              <Input
                 type="number"
                 min="1"
                 placeholder="Jump to #"
                 value={jumpToNumber}
                 onChange={(e) => setJumpToNumber(e.target.value)}
-                className="w-20 px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-20"
               />
-              <button
-                type="submit"
-                className="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-lg hover:bg-emerald-100 transition"
-              >
+              <Button type="submit" variant="secondary" size="small">
                 Go
-              </button>
+              </Button>
             </form>
           </div>
           <select
@@ -157,20 +155,20 @@ const BookBenefits = () => {
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="font-semibold text-gray-800">{`${activeTab.slice(0, -1).charAt(0).toUpperCase() + activeTab.slice(0, -1).slice(1)} ${index + 1}`}</p>
-                <p className="text-sm text-gray-500 mt-1">{formatDate(item.date)}</p>
+                <Subheading className="text-gray-800">{`${activeTab.slice(0, -1).charAt(0).toUpperCase() + activeTab.slice(0, -1).slice(1)} ${index + 1}`}</Subheading>
+                <Paragraph className="text-sm text-gray-500 mt-1">{formatDate(item.date)}</Paragraph>
               </div>
-              <button className="flex items-center space-x-1 text-gray-500 hover:text-emerald-600">
+              <Button className="flex items-center space-x-1" variant="secondary" size="small">
                 <Heart className="h-4 w-4" />
                 <span>{item.likes}</span>
-              </button>
+              </Button>
             </div>
-            <p className="mt-4 text-gray-700">{item.content}</p>
+            <Paragraph className="mt-4">{item.content}</Paragraph>
             <div className="mt-4 flex items-center space-x-4 text-sm text-gray-500">
-              <button className="flex items-center space-x-1 hover:text-emerald-600">
+              <Button className="flex items-center space-x-1" variant="secondary" size="small">
                 <MessageCircle className="h-4 w-4" />
                 <span>Reply</span>
-              </button>
+              </Button>
             </div>
           </div>
         ))}
@@ -178,16 +176,16 @@ const BookBenefits = () => {
 
       {/* Share form */}
       <div className="bg-white p-6 rounded-lg shadow-sm mt-8">
-        <h3 className="font-semibold mb-4">Share your thoughts</h3>
+        <Subheading className="mb-4">Share your thoughts</Subheading>
         <textarea
           placeholder={`Share a ${activeTab.slice(0, -1)} from this book...`}
           className="w-full p-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
           rows={3}
         />
         <div className="mt-4 flex justify-end">
-          <button className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition">
+          <Button variant="primary" size="medium">
             Share
-          </button>
+          </Button>
         </div>
       </div>
     </div>

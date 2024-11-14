@@ -1,4 +1,5 @@
 import React from 'react';
+import { Heading, Subheading, Paragraph } from './DesignSystem';
 
 const FeaturedBooks = () => {
   const books = [
@@ -24,7 +25,7 @@ const FeaturedBooks = () => {
 
   return (
     <section className="py-16 container mx-auto px-4">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800">Featured Books</h2>
+      <Heading className="mb-8">Featured Books</Heading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {books.map((book, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
@@ -37,8 +38,8 @@ const FeaturedBooks = () => {
             </div>
             <div className="p-6">
               <span className="text-sm text-emerald-600 font-semibold">{book.category}</span>
-              <h3 className="text-xl font-bold mt-2 mb-1">{book.title}</h3>
-              <p className="text-gray-600">{book.author}</p>
+              <Subheading className="mt-2 mb-1">{book.title}</Subheading>
+              <Paragraph>{book.author}</Paragraph>
             </div>
           </div>
         ))}

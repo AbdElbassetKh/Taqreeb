@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Book, Headphones, FileText, Share2, User } from 'lucide-react';
+import { Button, Heading, Subheading, Paragraph } from '../components/DesignSystem';
 import BookContent from '../components/book/BookContent';
 import BookExplanations from '../components/book/BookExplanations';
 import BookBenefits from '../components/book/BookBenefits';
@@ -85,8 +86,8 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
         </div>
         <div className="flex-1">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
-            <p className="text-2xl font-arabic text-gray-600">{book.arabicTitle}</p>
+            <Heading className="mb-2">{book.title}</Heading>
+            <Subheading className="text-2xl font-arabic text-gray-600">{book.arabicTitle}</Subheading>
           </div>
           <Link 
             to={`/author/${book.authorId}`}
@@ -108,25 +109,25 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
           </div>
           <div className="prose max-w-none mb-8">
             {book.introduction.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-gray-700 mb-4">{paragraph}</p>
+              <Paragraph key={index} className="mb-4">{paragraph}</Paragraph>
             ))}
           </div>
           <div className="flex space-x-4">
-            <button className="flex items-center space-x-2 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
+            <Button variant="primary" size="medium" className="flex items-center space-x-2">
               <Book className="h-4 w-4" />
               <span>Read Book</span>
-            </button>
-            <button className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+            </Button>
+            <Button variant="secondary" size="medium" className="flex items-center space-x-2">
               <Share2 className="h-4 w-4" />
               <span>Share</span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>
 
       {/* Topics */}
       <div className="bg-white p-6 rounded-lg shadow-sm mb-12">
-        <h2 className="text-xl font-bold mb-4">Main Topics Covered</h2>
+        <Subheading className="mb-4">Main Topics Covered</Subheading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {book.topics.map((topic) => (
             <div key={topic} className="flex items-center space-x-2">
@@ -163,7 +164,7 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
 
       {/* Benefits Section */}
       <div className="mt-16">
-        <h2 className="text-2xl font-bold mb-8">Benefits</h2>
+        <Subheading className="mb-8">Benefits</Subheading>
         <BookBenefits />
       </div>
     </div>
@@ -171,7 +172,7 @@ Written in 698 AH, this work stands out for its clear presentation and strong ev
 };
 
 const TabButton = ({ icon, label, active = false, onClick }) => (
-  <button
+  <Button
     onClick={onClick}
     className={`flex items-center space-x-2 py-4 px-1 border-b-2 font-medium text-sm ${
       active
@@ -181,7 +182,7 @@ const TabButton = ({ icon, label, active = false, onClick }) => (
   >
     {icon}
     <span>{label}</span>
-  </button>
+  </Button>
 );
 
 export default BookDetail;
