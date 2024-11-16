@@ -24,11 +24,12 @@ function App() {
       </main>
       <footer className="bg-[#1a1f36] text-white py-8 mt-20">
         <div className="container mx-auto px-4">
-          <p className="text-center text-gray-400">© {new Date().getFullYear()} Taqreeb al-Athar. All rights reserved.</p>
+          <p className="text-center text-gray-400 font-arabic">© {new Date().getFullYear()} تقريب الأثر.</p>
         </div>
       </footer>
     </div>
   );
 }
 
+export default App;
 export default App;
