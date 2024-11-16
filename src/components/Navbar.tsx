@@ -16,16 +16,16 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <NavLink to="/" icon={<Home className="h-4 w-4" />} text="Home" />
-            <NavLink to="/library" icon={<Library className="h-4 w-4" />} text="Library" />
-            <NavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />
-            <NavLink to="/search" icon={<Search className="h-4 w-4" />} text="Search" />
+            <NavLink to="/" icon={<Home className="h-4 w-4" />} text="الرئيسية" />
+            <NavLink to="/library" icon={<Library className="h-4 w-4" />} text="المكتبة" />
+            <NavLink to="/authors" icon={<Book className="h-4 w-4" />} text="المؤلفون" />
+            <NavLink to="/search" icon={<Search className="h-4 w-4" />} text="البحث" />
             <div className="flex items-center space-x-4">
               <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
-                Sign In
+                تسجيل الدخول
               </button>
               <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
-                Sign Up
+                إنشاء حساب
               </button>
             </div>
           </div>
@@ -43,15 +43,15 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-4">
-              <MobileNavLink to="/" icon={<Home className="h-4 w-4" />} text="Home" />
-              <MobileNavLink to="/library" icon={<Library className="h-4 w-4" />} text="Library" />
-              <MobileNavLink to="/authors" icon={<Book className="h-4 w-4" />} text="Authors" />
-              <MobileNavLink to="/search" icon={<Search className="h-4 w-4" />} text="Search" />
-              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition w-full text-left">
-                Sign In
+              <MobileNavLink to="/" icon={<Home className="h-4 w-4" />} text="الرئيسية" />
+              <MobileNavLink to="/library" icon={<Library className="h-4 w-4" />} text="المكتبة" />
+              <MobileNavLink to="/authors" icon={<Book className="h-4 w-4" />} text="المؤلفون" />
+              <MobileNavLink to="/search" icon={<Search className="h-4 w-4" />} text="البحث" />
+              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition w-full text-right">
+                تسجيل الدخول
               </button>
-              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition w-full text-left">
-                Sign Up
+              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition w-full text-right">
+                إنشاء حساب
               </button>
             </div>
           </div>
@@ -64,14 +64,14 @@ const Navbar = () => {
 const NavLink = ({ to, icon, text }: { to: string; icon: React.ReactNode; text: string }) => (
   <Link to={to} className="flex items-center space-x-1 text-gray-600 hover:text-emerald-600 transition">
     {icon}
-    <span>{text}</span>
+    <span className="font-arabic">{text}</span>
   </Link>
 );
 
 const MobileNavLink = ({ to, icon, text }: { to: string; icon: React.ReactNode; text: string }) => (
   <Link to={to} className="flex items-center space-x-2 text-gray-600 hover:text-emerald-600 transition px-4">
     {icon}
-    <span>{text}</span>
+    <span className="font-arabic">{text}</span>
   </Link>
 );
 
