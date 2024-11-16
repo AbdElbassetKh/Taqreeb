@@ -9,6 +9,10 @@
   }
 }
 
+body {
+  direction: rtl;
+}
+
 .font-arabic {
   font-family: 'Amiri', serif;
 }
