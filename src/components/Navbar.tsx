@@ -21,10 +21,10 @@ const Navbar = () => {
             <NavLink to="/authors" icon={<Book className="h-4 w-4" />} text="المؤلفون" />
             <NavLink to="/search" icon={<Search className="h-4 w-4" />} text="البحث" />
             <div className="flex items-center space-x-4">
-              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition">
+              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition font-arabic">
                 تسجيل الدخول
               </button>
-              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
+              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition font-arabic">
                 إنشاء حساب
               </button>
             </div>
@@ -47,10 +47,10 @@ const Navbar = () => {
               <MobileNavLink to="/library" icon={<Library className="h-4 w-4" />} text="المكتبة" />
               <MobileNavLink to="/authors" icon={<Book className="h-4 w-4" />} text="المؤلفون" />
               <MobileNavLink to="/search" icon={<Search className="h-4 w-4" />} text="البحث" />
-              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition w-full text-right">
+              <button className="text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-50 transition w-full text-right font-arabic">
                 تسجيل الدخول
               </button>
-              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition w-full text-right">
+              <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition w-full text-right font-arabic">
                 إنشاء حساب
               </button>
             </div>
