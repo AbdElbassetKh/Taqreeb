@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Library, Users, Search } from 'lucide-react';
 import Hero from '../components/Hero';
 import FeaturedBooks from '../components/FeaturedBooks';
+import Categories from '../components/Categories';
 
 const Home = () => {
   return (
@@ -17,8 +18,8 @@ const Home = () => {
             <div className="p-4 bg-emerald-50 rounded-full mb-4 group-hover:bg-emerald-100">
               <Library className="h-8 w-8 text-emerald-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Browse Library</h3>
-            <p className="text-gray-600">Explore our comprehensive collection of classical texts</p>
+            <h3 className="text-xl font-bold mb-2 font-arabic">تصفح المكتبة</h3>
+            <p className="text-gray-600 font-arabic">اكتشف مجموعتنا الشاملة من النصوص التراثية</p>
           </Link>
 
           <Link
@@ -28,8 +29,8 @@ const Home = () => {
             <div className="p-4 bg-emerald-50 rounded-full mb-4 group-hover:bg-emerald-100">
               <Users className="h-8 w-8 text-emerald-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Browse Authors</h3>
-            <p className="text-gray-600">Discover classical scholars and their contributions</p>
+            <h3 className="text-xl font-bold mb-2 font-arabic">تصفح المؤلفين</h3>
+            <p className="text-gray-600 font-arabic">اكتشف علماء السلف وإسهاماتهم</p>
           </Link>
 
           <Link
@@ -39,11 +40,12 @@ const Home = () => {
             <div className="p-4 bg-emerald-50 rounded-full mb-4 group-hover:bg-emerald-100">
               <Search className="h-8 w-8 text-emerald-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Search</h3>
-            <p className="text-gray-600">Find specific books, topics, or authors</p>
+            <h3 className="text-xl font-bold mb-2 font-arabic">البحث</h3>
+            <p className="text-gray-600 font-arabic">ابحث عن كتب أو مواضيع أو مؤلفين محددين</p>
           </Link>
         </div>
       </div>
+      <Categories />
       <FeaturedBooks />
     </>
   );
